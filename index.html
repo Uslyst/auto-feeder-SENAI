@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Comedouro Automático</h1>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h2>Dashboard</h2>
+            
+            <div card-container>
+                <article class="card">
+                    <p id="peso-container">Peso Container: 0%</p>
+                </article>
+
+                <article class="card">
+                    <p id="peso-container">Peso Vasilha: 0%</p>
+                </article>
+
+                <article class="card">
+                    <p id="prox-liberacao">Próxima liberação em: ---</p>
+                </article>
+
+                <article class="card">
+                    <!-- quando o animal está comendo (adicionar regra de tempo minimo) -->
+                    <p id="ultima-interação">Ultima interação em: ---</p> 
+                </article>
+            </div>
+
+            <article class="card" id="card-foto">
+                <h3>Ultima foto</h3>
+                <img id="foto-animal" src="./img/gato.jpg" alt="foto do animal">
+            </article>
+        </section>
+
+        <section class="saida">
+            <h2>Saída</h2>
+            <article class="card">    
+                <textarea name="console" id="console"></textarea> 
+                <div class="horizontal-buttons">
+                    <button id="liberar">Abrir comporta</button>
+                    <button id="fechar">Fechar comporta</button>
+
+                    <!-- as interações são exibidas quando houver movmento novo -->
+                    <input type="checkbox" id="exibir-interacoes">
+                    <label for="exibir-interacoes">Exibir interações</label>
+                </div> 
+            </article>
+        </section>
+
+        <section class="config">
+            <h2>Configurações</h2>
+
+            <article class="card">    
+                <h3>Liberação da Ração</h3>
+
+                <div class="aberturas-container">
+                    <p>Abeturas existentes</p>
+
+                    <div id="aberturas-lista">
+                        <p>Nenhuma abertura programada</p>
+                        <!-- adicionamos aqui configurações de agendamento -->
+                        <!--  [Sex] • 12:00 • Uma vez -->
+                        <!--  [Ter] - [Qua] - [Qui] • 12:00 • Repetível -->
+                    </div>
+                </div>
+                
+                <button id="botao-config-abertura">Adicionar abertura...</button>
+                    
+                <dialog id="janela-config-abertura">
+
+                    <form action="">
+                        <p>Selecione os dias</p>
+                        <!-- calendario com seleção multipla (vai ser dificil) -->
+                        <p id="dias-selecionados"></p>
+
+                        <label for="repetir-abertura">Repetir abertura</label>
+                        <input type="checkbox" id="repetir-abertura">
+
+                        <button id="adicionar-dia" type="submit">Adicionar dia</button>
+                        <button id="cancelar" type="reset">Cancelar</button>
+                    </form>           
+                </dialog>
+            </article>
+
+            <article class="card">    
+
+                <button>Configurar foto</button>
+
+                <h3>Configuração da foto</h3>          
+                <form action="">
+                    <label for="config-foto">Selecione uma opção: </label>
+                    <select name="config-foto" id="config-foto">
+                        <option value="">Sem foto</option>
+                        <option value="distancia">Por movimento</option>
+                        <option value="distancia">Horário customizado</option>
+                    </select>
+
+                    <fieldset id="config-hora-foto">
+                        <legend>Configure um horário</legend>
+                        <input id="hora-foto" type="time">
+                        <label for="hora-foto">Hora da foto: </label>
+
+                        <input type="checkbox" id="repetir-foto">
+                        <label for="repetir-foto">Repetir foto</label>
+                    </fieldset>   
+                    
+                    <button id="salvar-config-foto">Salvar</button>
+                </form>       
+            </article>
+
+        </section>
+        
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
